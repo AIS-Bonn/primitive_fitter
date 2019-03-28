@@ -1,0 +1,18 @@
+<launch>
+    <node name="nimbro_primitive_fitter" pkg="nimbro_primitive_fitter" type="nimbro_primitive_fitter" output="screen" required="true">
+        <param name="urdf_filename" value="$(find nimbro_primitive_fitter)/models/nimbro_op2x.urdf" />
+        <param name="output_filename" value="$(find nimbro_primitive_fitter)/models/nimbro_op2x_fitbox.urdf.xacro" />
+        
+        <param name="fit_shape" value="box" />
+        <param name="use_fitter" value="true" />
+        <param name="use_inertia" value="true" />
+        
+        <param name="boxfit/epsilon" value="0.0001" />
+        <param name="boxfit/pointSamples_is_relative" value="true" />
+        <param name="boxfit/pointSamples" value="0.85" />
+        <param name="boxfit/gridSize" value="5" />
+        <param name="boxfit/mvbbDiamOptLoops" value="2" />
+        <param name="boxfit/mvbbGridSearchOptLoops" value="2" />
+    </node>
+</launch>
+

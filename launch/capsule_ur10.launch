@@ -1,0 +1,11 @@
+<launch>
+    <node name="nimbro_primitive_fitter" pkg="nimbro_primitive_fitter" type="nimbro_primitive_fitter" output="screen" required="true">
+        <param name="urdf_filename" value="$(find nimbro_primitive_fitter)/models/ur10_stl.urdf" />
+        <param name="output_filename" value="$(find nimbro_primitive_fitter)/models/ur10_stl_fitcapsule.urdf.xacro" />
+        
+        <param name="fit_shape" value="capsule" />
+        <param name="use_fitter" value="true" />
+        <param name="use_inertia" value="true" />
+    </node>
+</launch>
+
