@@ -41,13 +41,13 @@ For your convinience, you might want to add this to your `~/.bashrc`.
 # How to use?
 
 ## Example
-This package comes with an example which fits capsules or boxes to the links of an UR10 robotic arm. Try 
+This package comes with examples which fits capsules or boxes to the links of an UR10 robotic arm and the NimbRo-Op2X robot. You will need the `ur_description` or the `nimbro_op_model`(https://github.com/AIS-Bonn/humanoid_op_ros/tree/master/src/nimbro/hardware/nimbro_op_model) ROS packages to execute the launch files. Once you have this packages, you can try for example: 
 ```
 roslaunch nimbro_primitive_fitter capsule_ur10.launch
 ```
 or 
 ```
-roslaunch nimbro_primitive_fitter box_ur10.launch
+roslaunch nimbro_primitive_fitter box_op2x.launch
 ```
 The launch-file specifies the URDF description and **generates a new file** with the corresponding primitives. 
 To make this pkg work with your model, simply change the corresponding ros parameters in the launch file. 
@@ -57,7 +57,7 @@ The box-fitting comes with a number of parameters, which might be required to ch
 ### How to add new primitive shapes
 
 Create a class that inherits from `ShapeFit`, thus you need to define the functions `writeUrdf` and `writeUrdfXacro`. 
-These functions are supposed to write the fitted shape to the Urdf XML. 
+These functions are supposed to write the fitted shape to the URDF XML. 
 Additionally, you will need to define a `static addMacroXacro` method, which writes the Xacro Macro that is neccessary in `writeUrdfXacro`.
 Finally, the `addMacroXacro` needs to be included in the `Urdf::addXacroDef` function. 
 For a simple non-macro example, refer to BoxFit, for help on using macros, refer to the CapsuleFit class. 
